@@ -177,6 +177,20 @@ module.exports = class Model {
     this.options.limit = [listRows * (page - 1), listRows];
     return this;
   }
+
+  /**
+   * set tenants options
+   */
+  tenants(tenantsId) {
+    if (!tenantsId) return this;
+    const options = this.options;
+    const where = {tenants_id: tenantsId};
+    if (options.where && helper.isString(options.where)) {
+      options.where = { _string: options.where };
+    }
+    options.where = helper.extend({}, options.where, where);
+    return this;
+  }
   /**
    * set where options
    * @return {} []
