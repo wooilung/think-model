@@ -48,6 +48,11 @@ declare namespace ThinkModel {
      */
     page(page?: Array<string | number> | number | string, listRows?: string | number): Model;
     /**
+     * set tenants options
+     * @return {} []
+     */
+    tenants(tenantsId?: number | object): Model;
+    /**
      * set where options
      * @return {} []
      */
